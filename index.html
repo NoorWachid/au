@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="check your headset, headphone left and right channels">
+  <title>Au - Channels Test</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-size: 18px;
+      font-family: sans-serif;
+
+      background-color: #121212;
+      color: #fff;
+    }
+    main {
+      width: 100%;
+      max-width: 600px;
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+    .audio {
+      width: 33.3%;
+      padding: 16px;
+    }
+    .audio div {
+      cursor: pointer;
+      padding: 50px;
+      border: 2px solid #f02c00;
+      color: #f02c00;
+    }
+    .audio div:hover {
+      background-color: #f02c00;
+      color: #121212;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="audio left" onclick="play('audio-left')"><div>LEFT</div></div>
+    <div class="audio both" onclick="play('audio-both')"><div>BOTH</div></div>
+    <div class="audio right" onclick="play('audio-right')"><div>RIGHT</div></div>
+  </main>
+
+  <audio id="audio-left">
+    <source src="audio/left.wav" type="audio/wav">
+  </audio>
+  <audio id="audio-both">
+    <source src="audio/both.wav" type="audio/wav">
+  </audio>
+  <audio id="audio-right">
+    <source src="audio/right.wav" type="audio/wav">
+  </audio>
+
+  <script>
+    function play(id) {
+      var audio = document.getElementById(id);
+      audio.currentTime = 0;
+      audio.play();
+    }
+  </script>
+</body>
+</html>
